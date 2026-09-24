@@ -1,0 +1,32 @@
+name: Deploy to WordPress.org
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify release metadata
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME#v}"
+          header=$(grep -m1 '^ *\* Version:' bestony-ai-provider-for-siliconflow.php | awk '{print $3}')
+          stable=$(grep -m1 '^Stable tag:' readme.txt | awk '{print $3}')
+          config=$(perl -ne "print \$1 if /const VERSION = '([\d.]+)'/" src/Util/SiliconflowConfig.php)
+          test "$tag" = "$header" && test "$tag" = "$stable" && test "$tag" = "$config"
+          grep -qx "= ${tag} =" readme.txt
+      - run: php scripts/selfcheck.php
+      - uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: bestony-ai-provider-for-siliconflow

@@ -1,0 +1,6 @@
+/scripts export-ignore
+/.github export-ignore
+/README.md export-ignore
+/README.zh-CN.md export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
