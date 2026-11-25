@@ -5,7 +5,11 @@
 declare(strict_types=1);
 
 $root = dirname(__DIR__);
+// Dev-only CLI harness: exit on direct web access; define ABSPATH for the plugin files' guards.
 if (!defined('ABSPATH')) {
+    if ('cli' !== PHP_SAPI) {
+        exit; // Exit if accessed directly.
+    }
     define('ABSPATH', $root . '/');
 }
 require $root . '/src/autoload.php';

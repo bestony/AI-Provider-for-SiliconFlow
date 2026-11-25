@@ -13,6 +13,10 @@ declare(strict_types=1);
 
 namespace SiliconFlow\AiProvider\Util;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use WordPress\AiClient\AiClient;
 use WordPress\AiClient\Providers\Http\DTO\RequestOptions;
 

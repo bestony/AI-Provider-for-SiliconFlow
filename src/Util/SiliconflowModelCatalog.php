@@ -13,6 +13,10 @@ declare(strict_types=1);
 
 namespace SiliconFlow\AiProvider\Util;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 final class SiliconflowModelCatalog
 {
     private const VISION_PATTERNS = [

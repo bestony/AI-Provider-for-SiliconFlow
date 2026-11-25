@@ -10,6 +10,10 @@ declare(strict_types=1);
 
 namespace SiliconFlow\AiProvider\Models;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use SiliconFlow\AiProvider\Util\SiliconflowConfig;
 use WordPress\AiClient\Providers\OpenAiCompatibleImplementation\AbstractOpenAiCompatibleTextGenerationModel;
 

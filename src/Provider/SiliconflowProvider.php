@@ -10,6 +10,10 @@ declare(strict_types=1);
 
 namespace SiliconFlow\AiProvider\Provider;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use SiliconFlow\AiProvider\Metadata\SiliconflowModelMetadataDirectory;
 use SiliconFlow\AiProvider\Models\SiliconflowImageGenerationModel;
 use SiliconFlow\AiProvider\Models\SiliconflowTextGenerationModel;
