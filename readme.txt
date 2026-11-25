@@ -32,9 +32,13 @@ Set `SILICONFLOW_BASE_URL`, `SILICONFLOW_DEFAULT_MODEL`, `SILICONFLOW_IMAGE_MODE
 
 == External services ==
 
-This plugin sends requests to SiliconFlow. `GET /v1/models` sends only the registry-provided API key. `POST /v1/chat/completions` sends the prompts, conversation history, tools, structured-output schema, and attached media supplied by the calling feature. `POST /v1/images/generations` sends the image prompt and configured generation options. Generated image URLs expire after one hour.
+This plugin connects to the SiliconFlow API to provide SiliconFlow models to the WordPress AI Client. Requests are sent only when a feature on the site uses the provider. `GET /v1/models` sends only the registry-provided API key. `POST /v1/chat/completions` sends the prompts, conversation history, tools, structured-output schema, and attached media supplied by the calling feature. `POST /v1/images/generations` sends the image prompt and configured generation options. Generated image URLs expire after one hour.
 
-SiliconFlow documentation: https://docs.siliconflow.cn/
+This service is provided by SiliconFlow:
+
+* Documentation: [https://docs.siliconflow.cn/](https://docs.siliconflow.cn/)
+* Terms of service: [https://docs.siliconflow.cn/cn/legals/terms-of-service](https://docs.siliconflow.cn/cn/legals/terms-of-service)
+* Privacy policy: [https://docs.siliconflow.cn/cn/legals/privacy-policy](https://docs.siliconflow.cn/cn/legals/privacy-policy)
 
 == Changelog ==
 
